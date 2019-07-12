@@ -3,7 +3,6 @@
 namespace App\Controller;
 use App\Entity\BlogPost;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\BlogPostType;
 use App\Form\BlogPostDeleteType;
@@ -12,7 +11,7 @@ class BlogPostController extends AbstractController
 
 {
 	/**
-	 * Matches /blogPost exactly
+	 * Matches blogPost exactly
 	 * @Route("/blog/list", name="blogPost_list")
 	 */
 	public function listPostsAction()
@@ -25,10 +24,23 @@ class BlogPostController extends AbstractController
 	}
 
     /**
+     * Finds featured BlogPosts
+     * @Route("/blog/list_featured", name="blogPost_list_featured")
+     */
+    public function listFeaturedPostsAction()
+    {
+        $blogPost = $this->getDoctrine()
+            ->getRepository(BlogPost::class)
+            ->findBy(array('featured' => TRUE));
+
+        return $this->render('blogpost/list_filtered.html.twig', ['blogPost' => $blogPost]);
+    }
+
+    /**
      * Search for a blogPost
-     * @Route("/blog/{id}")
-     * @Route("/blog/slug")
-     * @Route("/blog/date/slug")
+     * @Route("/blog/{id}", name="blogPost_byId")
+     * @Route("/blog/slug", requirements={"slug"="[a-zA-Z0-9-_]*"})
+     * @Route("/blog/date/slug", requirements={"date"="[0-9]{4}*"})
      */
     public function showPostAction($id)
     {
