@@ -11,7 +11,7 @@
                 <td>{{ blogPost.title }}</td>
                 <td>{{ blogPost.content }}</td>
                 <td>{{ blogPost.date|date('Y-m-d') }}</td>
-                <td></td>
+                <td>{{ blogPost.category }}</td>
                 <td>{{ blogPost.featured }}</td>
             </tr>
         {% endfor %}

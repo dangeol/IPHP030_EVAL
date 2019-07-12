@@ -47,6 +47,11 @@ class BlogPost
      */
     private $featured;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="name")
+     */
+    private $Category;
+
     public function getId(): ?int
     {
         return $this->id;
