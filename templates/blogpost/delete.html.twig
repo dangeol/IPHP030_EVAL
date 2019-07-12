@@ -1,0 +1,8 @@
+{# templates/blogpost/delete.html.twig #}
+{% extends 'layout.html.twig' %}
+
+{% block headline %} <h2>Delete BlogPost</h2> {% endblock %}
+{% block content %}
+    {{ form(delete_form) }}
+
+{% endblock %}

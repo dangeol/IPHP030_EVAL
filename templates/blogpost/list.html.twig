@@ -1,0 +1,24 @@
+{# templates/blogpost/list.html.twig #}
+{% extends 'layout.html.twig' %}
+
+{% block headline %} <h2>List of BlogPosts</h2> {% endblock %}
+{% block content %}
+    <table>
+        <tbody>
+        <tr><th>Title</th><th>Content</th><th>Date</th><th>Category</th><th>Featured</th></tr>
+        {% for blogPost in blogPost %}
+            <tr>
+                <td>{{ blogPost.title }}</td>
+                <td>{{ blogPost.content }}</td>
+                <td>{{ blogPost.date|date('Y-m-d') }}</td>
+                <td>{{ blogPost.category }}</td>
+                <td>{{ blogPost.featured }}</td>
+                <td> <button type="button"><a href="{{ path('blogPost_update',{ blogPost: blogPost.id }) }}" >UPDATE</a></button> </td>
+                <td> <button type="button"><a href="{{ path('blogPost_delete',{ blogPost: blogPost.id }) }}" >DELETE</a></button> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p><button type="button"><a href="{{ path('new_blogPost') }}">CREATE</a></button></p>
+
+{% endblock %}

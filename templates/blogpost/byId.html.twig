@@ -1,0 +1,9 @@
+{# templates/blogpost/byId.html.twig #}
+{% extends 'layout.html.twig' %}
+
+{% block headline %} <h2>BlogPost by id</h2> {% endblock %}
+{% block content %}
+    <a href="{{ path('blogPost_byId', {'id': blogPost.id}) }}">
+        <p>article: {{ blogPost.title }}, content: {{ blogPost.content }}</p>
+    </a>
+{% endblock %}

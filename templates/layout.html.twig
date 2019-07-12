@@ -1,0 +1,20 @@
+{# templates/layout.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block headline %} <h2>Home</h2> {% endblock %}
+{% block body %}
+    <div id="header">
+        {{ include('header.html.twig') }}
+    </div>
+    <div id="sidebar">
+        {{ include('menu.html.twig') }}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div id="footer">
+        {{ include('footer.html.twig') }}
+    </div>
+{% endblock %}

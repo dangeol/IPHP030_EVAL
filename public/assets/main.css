@@ -1,0 +1,44 @@
+html {
+
+}
+
+header {
+    background: grey;
+    width: 100%;
+    height: 50px;
+}
+
+footer {
+    background: grey;
+    width: 100%;
+    height: 50px;
+}
+
+ul {
+    background: #F5F5F5;
+    width: 20%;
+    height: 400px;
+}
+
+#content {
+    position: absolute;
+    left: 250px;
+    top: 120px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
