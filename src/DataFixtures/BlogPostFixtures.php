@@ -10,14 +10,17 @@ class BlogPostFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 8; $i++) {
             $blogPost = new BlogPost();
             $blogPost->setTitle("Mon BlogPost $i");
             $blogPost->setSlug("Slug");
             $blogPost->setContent("Sample Content");
             $blogPost->setDate(new \DateTime('12/07/2019'));
-            $blogPost->setCategory("Category_1");
-            $blogPost->setFeatured(TRUE);
+            if ($i%2 === 0) {
+                $blogPost->setFeatured(TRUE);
+            } else {
+                $blogPost->setFeatured(FALSE);
+            }
 
             $manager->persist($blogPost);
         }
